@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useQuery } from '@apollo/client'
 import { Link } from 'react-router-dom'
@@ -7,10 +7,13 @@ import * as HerbQueries from '../graphql/HerbQueries'
 import RemoteError from './shared/RemoteError'
 import RemoteLoading from './shared/RemoteLoading'
 
+import Pagination from './Pagination'
+
 const HerbPropertySet = ({ propertyType, propertySet }) => {
     return (
         <span>
-            <strong style={{ textTransform: 'capitalize' }}>{propertyType}</strong>: {propertySet}.{' '}
+            <strong style={{ textTransform: 'capitalize' }}>{propertyType}</strong>:{' '}
+            {propertySet.join(', ')}.{' '}
         </span>
     )
 }
@@ -31,7 +34,7 @@ const HerbRow = ({ herb }) => {
                 properties.push(p.property.replace(/^\w/, (c) => c.toUpperCase()))
             }
         })
-        return properties.join(', ')
+        return properties
     })
     const finalProperties = propertyTypes.map((pt, i) => (
         <HerbPropertySet key={i} propertyType={pt} propertySet={allProperties[i]} />
@@ -70,8 +73,10 @@ HerbRow.propTypes = {
 }
 
 const HerbsList = ({ title }) => {
+    const [limit, setLimit] = useState(20)
+    const [offset, setOffset] = useState(0)
     const { loading, error, data } = useQuery(HerbQueries.LIST_HERBS, {
-        variables: { limit: 20, offset: 0 },
+        variables: { limit, offset },
     })
     if (loading) return <RemoteLoading />
     if (error) return <RemoteError error={error} />
@@ -91,6 +96,12 @@ const HerbsList = ({ title }) => {
                     </table>
                 </div>
             </div>
+            <Pagination
+                limit={limit}
+                offset={offset}
+                total={data.herbs_aggregate.aggregate.count}
+                onChange={setOffset}
+            />
         </div>
     )
 }

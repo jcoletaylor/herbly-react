@@ -21,5 +21,10 @@ export const LIST_HERBS = gql`
                 property
             }
         }
+        herbs_aggregate {
+            aggregate {
+                count
+            }
+        }
     }
 `

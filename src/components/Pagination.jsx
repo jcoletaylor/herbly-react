@@ -4,10 +4,8 @@ import PropTypes from 'prop-types'
 const Pagination = ({ limit, offset, total, onChange }) => {
     const lastPage = Math.round(total / limit)
     let currentPage = 1
-    if (offset < limit) {
-        currentPage = 1
-    } else {
-        currentPage = Math.round(offset / limit)
+    if (offset >= limit) {
+        currentPage = Math.round(offset / limit) + 1
     }
     let previousPage = currentPage - 1
     if (previousPage < 1) {
@@ -19,8 +17,7 @@ const Pagination = ({ limit, offset, total, onChange }) => {
     }
     const handleOnChange = (page) => {
         return () => {
-            console.log({ currentPage, previousPage, nextPage, lastPage })
-            onChange(limit * page)
+            onChange(limit * (page - 1))
         }
     }
     let previousLi
@@ -72,7 +69,7 @@ const Pagination = ({ limit, offset, total, onChange }) => {
     }
 
     let lastLi
-    if (lastPage !== currentPage && currentPage + 1 < lastPage) {
+    if (lastPage !== currentPage && currentPage < lastPage) {
         lastLi = (
             <>
                 <li>

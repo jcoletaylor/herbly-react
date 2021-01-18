@@ -23,7 +23,7 @@ const BreadCrumbs = ({ crumbs }) => {
 }
 
 Crumb.propTypes = {
-    crumb: PropTypes.objectOf({
+    crumb: PropTypes.shape({
         path: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         className: PropTypes.string,

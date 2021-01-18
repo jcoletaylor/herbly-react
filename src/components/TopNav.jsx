@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const TopNav = () => {
+    const [isActive, setIsActive] = useState(false)
     return (
         <nav className="navbar is-white">
             <div className="container">
@@ -9,13 +10,22 @@ const TopNav = () => {
                     <Link to="/" className="navbar-item brand-text">
                         Herbly.app
                     </Link>
-                    <div className="navbar-burger burger" data-target="navMenu">
+                    <a
+                        onClick={() => {
+                            setIsActive(!isActive)
+                        }}
+                        role="button"
+                        aria-label="menu"
+                        aria-expanded="false"
+                        className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
+                        data-target="navMenu"
+                    >
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </a>
                 </div>
-                <div id="navMenu" className="navbar-menu">
+                <div id="navMenu" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
                     <div className="navbar-start">
                         <Link to="/" className="navbar-item">
                             Home

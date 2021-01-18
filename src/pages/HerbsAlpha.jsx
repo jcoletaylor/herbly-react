@@ -2,10 +2,10 @@ import React from 'react'
 import LeftNav from '../components/LeftNav'
 import BreadCrumbs from '../components/BreadCrumbs'
 
-import HerbsList from '../components/HerbsList'
+import HerbsList from '../components/Herbs/HerbsList'
 
 const crumbs = [
-    { path: '/', name: 'Home', className: undefined },
+    { path: '/', name: 'Home', className: '' },
     { path: '/herbs', name: 'Herbs', className: 'is-active' },
 ]
 

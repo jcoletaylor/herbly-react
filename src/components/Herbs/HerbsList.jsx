@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { useQuery } from '@apollo/client'
 import { Link } from 'react-router-dom'
 
-import * as HerbQueries from '../graphql/HerbQueries'
-import RemoteError from './shared/RemoteError'
-import RemoteLoading from './shared/RemoteLoading'
+import * as HerbQueries from '../../graphql/HerbQueries'
+import RemoteError from '../shared/RemoteError'
+import RemoteLoading from '../shared/RemoteLoading'
 
-import Pagination from './Pagination'
+import Pagination from '../shared/Pagination'
 
 const HerbPropertySet = ({ propertyType, propertySet }) => {
     return (
@@ -24,7 +24,7 @@ HerbPropertySet.propTypes = {
 }
 
 const HerbRow = ({ herb }) => {
-    const url = `/herbs/${herb.id}`
+    const url = `/herbs/${herb.name}`
     const categoryUrl = `/herb_categories/${herb.herb_category.id}`
     const propertyTypes = [...new Set(herb.herb_properties.map((p) => p.herb_property_type.name))]
     const allProperties = propertyTypes.map((pt) => {
@@ -55,20 +55,23 @@ const HerbRow = ({ herb }) => {
 }
 
 HerbRow.propTypes = {
-    herb: PropTypes.objectOf({
+    herb: PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
-        pharm_latin: PropTypes.string.isRequired,
-        hanzi: PropTypes.string.isRequired,
-        herb_category: PropTypes.objectOf({
+        pharm_latin: PropTypes.string,
+        hanzi: PropTypes.string,
+        herb_category: PropTypes.shape({
+            id: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired,
-        }),
-        herb_properties: PropTypes.arrayOf({
-            property: PropTypes.string.isRequired,
-            property_type: PropTypes.objectOf({
-                name: PropTypes.string.isRequired,
+        }).isRequired,
+        herb_properties: PropTypes.arrayOf(
+            PropTypes.shape({
+                property: PropTypes.string.isRequired,
+                property_type: PropTypes.shape({
+                    name: PropTypes.string.isRequired,
+                }),
             }),
-        }),
+        ),
     }),
 }
 

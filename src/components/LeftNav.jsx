@@ -29,7 +29,12 @@ const LeftNav = () => {
                         {data.herb_property_types.map((t) => {
                             return (
                                 <li key={t.id}>
-                                    <Link style={{ textTransform: 'capitalize' }}>{t.name}</Link>
+                                    <Link
+                                        to={`/herb_properties/${t.name}`}
+                                        style={{ textTransform: 'capitalize' }}
+                                    >
+                                        {t.name}
+                                    </Link>
                                 </li>
                             )
                         })}
@@ -41,7 +46,12 @@ const LeftNav = () => {
                         {data.herb_warning_types.map((t) => {
                             return (
                                 <li key={t.id}>
-                                    <Link style={{ textTransform: 'capitalize' }}>{t.name}</Link>
+                                    <Link
+                                        to={`/herb_warnings/${t.name}`}
+                                        style={{ textTransform: 'capitalize' }}
+                                    >
+                                        {t.name}
+                                    </Link>
                                 </li>
                             )
                         })}

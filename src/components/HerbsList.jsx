@@ -73,7 +73,7 @@ HerbRow.propTypes = {
 }
 
 const HerbsList = ({ title }) => {
-    const [limit, setLimit] = useState(20)
+    const [limit] = useState(20)
     const [offset, setOffset] = useState(0)
     const { loading, error, data } = useQuery(HerbQueries.LIST_HERBS, {
         variables: { limit, offset },

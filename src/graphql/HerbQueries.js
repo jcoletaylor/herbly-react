@@ -77,13 +77,15 @@ export const COMPLETE_HERB_DETAIL_FRAGMENT = gql`
             }
         }
         herb_combination_herbs {
-            herb {
-                id
-                name
-            }
             herb_combination {
                 id
                 description
+                herb_combination_herbs {
+                    herb {
+                        id
+                        name
+                    }
+                }
                 herb_combination_use_cases {
                     id
                     use_case
@@ -93,6 +95,15 @@ export const COMPLETE_HERB_DETAIL_FRAGMENT = gql`
         herb_notes {
             id
             note
+        }
+        formula_herbs {
+            id
+            formula {
+                name
+                pinyin
+                hanzi
+                english
+            }
         }
     }
 `

@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client'
 import { Link } from 'react-router-dom'
 
 import * as HerbQueries from '../../graphql/HerbQueries'
+import HerbPropTypes from './HerbPropTypes'
 import RemoteError from '../shared/RemoteError'
 import RemoteLoading from '../shared/RemoteLoading'
 
@@ -54,26 +55,7 @@ const HerbRow = ({ herb }) => {
     )
 }
 
-HerbRow.propTypes = {
-    herb: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        pharm_latin: PropTypes.string,
-        hanzi: PropTypes.string,
-        herb_category: PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            name: PropTypes.string.isRequired,
-        }).isRequired,
-        herb_properties: PropTypes.arrayOf(
-            PropTypes.shape({
-                property: PropTypes.string.isRequired,
-                property_type: PropTypes.shape({
-                    name: PropTypes.string.isRequired,
-                }),
-            }),
-        ),
-    }),
-}
+HerbRow.propTypes = HerbPropTypes
 
 const HerbsList = ({ title }) => {
     const [limit] = useState(20)

@@ -1,7 +1,7 @@
 import React from 'react'
-import HerbPropTypes from './HerbPropTypes'
+import HerbPropTypes from '../HerbPropTypes'
 
-const HerbPropertyRows = ({ herb }) => {
+const HerbPropertyDetail = ({ herb }) => {
     const propertyTypes = [...new Set(herb.herb_properties.map((p) => p.herb_property_type.name))]
     const allProperties = propertyTypes.map((pt) => {
         const properties = []
@@ -20,9 +20,13 @@ const HerbPropertyRows = ({ herb }) => {
             <td>{allProperties[i].join(', ')}</td>
         </tr>
     ))
-    return finalProperties
+    return (
+        <table className="table is-fullwidth is-striped">
+            <tbody>{finalProperties}</tbody>
+        </table>
+    )
 }
 
-HerbPropertyRows.propTypes = HerbPropTypes
+HerbPropertyDetail.propTypes = HerbPropTypes
 
-export default HerbPropertyRows
+export default HerbPropertyDetail

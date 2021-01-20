@@ -77,6 +77,11 @@ nav.navbar {
   margin-bottom: 0;
 }
 .list-card .card-table {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.list-card .card-table-large {
   max-height: 600px;
   overflow-y: scroll;
 }

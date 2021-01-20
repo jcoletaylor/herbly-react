@@ -70,7 +70,7 @@ const HerbsList = ({ title }) => {
             <header className="card-header">
                 <p className="card-header-title">{title}</p>
             </header>
-            <div className="card-table">
+            <div className="card-table-large">
                 <div className="content">
                     <table className="table is-fullwidth is-striped">
                         <tbody>

@@ -10,6 +10,15 @@ const HerbComboDetail = ({ herb }) => {
                     <tr key={combo.id}>
                         <td>
                             <ul style={{ listStyle: 'none' }}>
+                                {combo.herb_combination.herb_combination_use_cases.map(
+                                    (useCase) => (
+                                        <li key={useCase.id}>{useCase.use_case}</li>
+                                    ),
+                                )}
+                            </ul>
+                        </td>
+                        <td>
+                            <ul style={{ listStyle: 'none' }}>
                                 {combo.herb_combination.herb_combination_herbs.map((hch) => (
                                     <li key={hch.id}>
                                         <Link to={`/herbs/${hch.herb.name}`}>
@@ -17,15 +26,6 @@ const HerbComboDetail = ({ herb }) => {
                                         </Link>
                                     </li>
                                 ))}
-                            </ul>
-                        </td>
-                        <td>
-                            <ul style={{ listStyle: 'none' }}>
-                                {combo.herb_combination.herb_combination_use_cases.map(
-                                    (useCase) => (
-                                        <li key={useCase.id}>{useCase.use_case}</li>
-                                    ),
-                                )}
                             </ul>
                         </td>
                     </tr>

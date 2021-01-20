@@ -9,23 +9,28 @@ const HerbFormulaDetail = ({ herb }) => {
                 {herb.formula_herbs.map((fh) => (
                     <tr key={fh.id}>
                         <td>
-                            <strong>
-                                <Link to={`/formulas/${fh.formula.name}`}>{fh.formula.name}</Link>
-                            </strong>
-                        </td>
-                        <td>
-                            <ul style={{ listStyle: 'none' }}>
-                                <li>
-                                    <strong>Pinyin</strong> {fh.formula.pinyin}
-                                </li>
-                                <li>
-                                    <strong>Hanzi</strong> {fh.formula.hanzi}
-                                </li>
+                            <p>
+                                <strong>
+                                    <Link to={`/formulas/${fh.formula.name}`}>
+                                        {fh.formula.name}
+                                    </Link>
+                                </strong>
+                            </p>
 
-                                <li>
-                                    <strong>English</strong> {fh.formula.english}
-                                </li>
-                            </ul>
+                            <p>
+                                <ul style={{ listStyle: 'none' }}>
+                                    <li>
+                                        <strong>Pinyin</strong> {fh.formula.pinyin}
+                                    </li>
+                                    <li>
+                                        <strong>Hanzi</strong> {fh.formula.hanzi}
+                                    </li>
+
+                                    <li>
+                                        <strong>English</strong> {fh.formula.english}
+                                    </li>
+                                </ul>
+                            </p>
                         </td>
                     </tr>
                 ))}

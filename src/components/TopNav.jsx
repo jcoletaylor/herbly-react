@@ -39,6 +39,9 @@ const TopNav = () => {
                         <Link to="/search" className="navbar-item">
                             Search
                         </Link>
+                        <Link to="/stats" className="navbar-item">
+                            Stats
+                        </Link>
                         <Link to="/about" className="navbar-item">
                             About
                         </Link>

@@ -121,14 +121,6 @@ export const COMPLETE_FORMULA_DETAIL_FRAGMENT = gql`
                 herb {
                     id
                     name
-                    pinyin
-                    latin
-                    pharm_latin
-                    hanzi
-                    herb_category {
-                        id
-                        name
-                    }
                 }
             }
         }

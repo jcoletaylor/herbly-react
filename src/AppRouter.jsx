@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Search from './pages/Search'
+import Stats from './pages/Stats'
 import HerbsAlpha from './pages/HerbsAlpha'
 import SingleHerb from './pages/SingleHerb'
 import FormulasAlpha from './pages/FormulasAlpha'
@@ -34,6 +35,9 @@ const AppRouter = () => {
                 </Route>
                 <Route path="/search">
                     <Search />
+                </Route>
+                <Route path="/stats">
+                    <Stats />
                 </Route>
                 <Route path="/about">
                     <About />

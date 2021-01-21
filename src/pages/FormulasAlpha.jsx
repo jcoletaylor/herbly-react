@@ -2,6 +2,8 @@ import React from 'react'
 import LeftNav from '../components/LeftNav'
 import BreadCrumbs from '../components/BreadCrumbs'
 
+import FormulasList from '../components/Formulas/FormulasList'
+
 const crumbs = [
     { path: '/', name: 'Home', className: undefined },
     { path: '/formulas', name: 'Formulas', className: 'is-active' },
@@ -16,7 +18,7 @@ const FormulasAlpha = () => {
                 </div>
                 <div className="column is-10">
                     <BreadCrumbs crumbs={crumbs} />
-                    <h2>Welcome to Formulas</h2>
+                    <FormulasList title="Formulas by Alpha" />
                 </div>
             </section>
         </div>

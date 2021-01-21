@@ -8,6 +8,7 @@ import Search from './pages/Search'
 import HerbsAlpha from './pages/HerbsAlpha'
 import SingleHerb from './pages/SingleHerb'
 import FormulasAlpha from './pages/FormulasAlpha'
+import SingleFormula from './pages/SingleFormula'
 
 import TopNav from './components/TopNav'
 
@@ -25,8 +26,11 @@ const AppRouter = () => {
                 <Route path="/herbs/:name">
                     <SingleHerb />
                 </Route>
-                <Route path="/formulas">
+                <Route exact path="/formulas">
                     <FormulasAlpha />
+                </Route>
+                <Route path="/formulas/:name">
+                    <SingleFormula />
                 </Route>
                 <Route path="/search">
                     <Search />

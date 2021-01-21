@@ -59,9 +59,11 @@ const HerbRow = ({ herb }) => {
 HerbRow.propTypes = HerbPropTypes
 
 const HerbsList = ({ title }) => {
-    const { herbsLimit, herbsOffset, setHerbsOffset } = useContext(PaginationContext)
+    const {
+        herbs: { limit, offset, setOffset },
+    } = useContext(PaginationContext)
     const { loading, error, data } = useQuery(HerbQueries.LIST_HERBS, {
-        variables: { limit: herbsLimit, offset: herbsOffset },
+        variables: { limit, offset },
     })
     if (loading) return <RemoteLoading />
     if (error) return <RemoteError error={error} />
@@ -82,10 +84,10 @@ const HerbsList = ({ title }) => {
                 </div>
             </div>
             <Pagination
-                limit={herbsLimit}
-                offset={herbsOffset}
+                limit={limit}
+                offset={offset}
                 total={data.herbs_aggregate.aggregate.count}
-                onChange={setHerbsOffset}
+                onChange={setOffset}
             />
         </div>
     )

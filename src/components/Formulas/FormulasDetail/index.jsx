@@ -9,6 +9,8 @@ import RemoteLoading from '../../shared/RemoteLoading'
 import FormulaDetailListCard from './FormulaDetailListCard'
 import FormulaNameDetail from './FormulaNameDetail'
 import FormulaActionDetail from './FormulaActionDetail'
+import FormulaManifestationDetail from './FormulaManifestationDetail'
+import FormulaHerbsDetail from './FormulaHerbsDetail'
 
 const FormulasDetail = ({ name }) => {
     const { loading, error, data } = useQuery(FormulaQueries.SINGLE_FORMULA_DETAIL, {
@@ -38,12 +40,22 @@ const FormulasDetail = ({ name }) => {
                             formula={formula}
                             component={FormulaNameDetail}
                         />
+                        <FormulaDetailListCard
+                            title="Manifestation"
+                            formula={formula}
+                            component={FormulaManifestationDetail}
+                        />
                     </div>
                     <div className="column is-6">
                         <FormulaDetailListCard
                             title="Formula Actions"
                             formula={formula}
                             component={FormulaActionDetail}
+                        />
+                        <FormulaDetailListCard
+                            title="Herbs"
+                            formula={formula}
+                            component={FormulaHerbsDetail}
                         />
                     </div>
                 </div>

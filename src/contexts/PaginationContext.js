@@ -2,22 +2,19 @@ import { useState, createContext } from 'react'
 
 export const PaginationContext = createContext()
 
-export const PaginationManager = () => {
-    const [formulasLimit, setFormulasLimit] = useState(20)
-    const [herbsLimit, setHerbsLimit] = useState(20)
-    const [formulasOffset, setFormulasOffset] = useState(0)
-    const [herbsOffset, setHerbsOffset] = useState(0)
+export const PaginationComponent = () => {
+    const [limit, setLimit] = useState(20)
+    const [offset, setOffset] = useState(0)
+    return { limit, offset, setLimit, setOffset }
+}
 
-    return {
-        formulasLimit,
-        setFormulasLimit,
-        herbsLimit,
-        setHerbsLimit,
-        formulasOffset,
-        setFormulasOffset,
-        herbsOffset,
-        setHerbsOffset,
-    }
+export const PaginationManager = () => {
+    const paginationSets = ['herbs', 'formulas']
+    const managed = {}
+    paginationSets.map((set) => {
+        managed[set] = PaginationComponent()
+    })
+    return managed
 }
 
 export default PaginationContext

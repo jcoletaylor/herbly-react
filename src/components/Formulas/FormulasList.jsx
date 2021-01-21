@@ -34,9 +34,11 @@ const FormulaRow = ({ formula }) => {
 FormulaRow.propTypes = FormulaPropTypes
 
 const FormulasList = ({ title }) => {
-    const { formulasLimit, formulasOffset, setFormulasOffset } = useContext(PaginationContext)
+    const {
+        formulas: { limit, offset, setOffset },
+    } = useContext(PaginationContext)
     const { loading, error, data } = useQuery(FormulaQueries.LIST_FORMULAS, {
-        variables: { limit: formulasLimit, offset: formulasOffset },
+        variables: { limit, offset },
     })
     if (loading) return <RemoteLoading />
     if (error) return <RemoteError error={error} />
@@ -57,10 +59,10 @@ const FormulasList = ({ title }) => {
                 </div>
             </div>
             <Pagination
-                limit={formulasLimit}
-                offset={formulasOffset}
+                limit={limit}
+                offset={offset}
                 total={data.formulas_aggregate.aggregate.count}
-                onChange={setFormulasOffset}
+                onChange={setOffset}
             />
         </div>
     )

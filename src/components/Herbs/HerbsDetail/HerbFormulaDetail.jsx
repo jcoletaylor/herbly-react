@@ -9,15 +9,15 @@ const HerbFormulaDetail = ({ herb }) => {
                 {herb.formula_herbs.map((fh) => (
                     <tr key={fh.id}>
                         <td>
-                            <p>
+                            <div>
                                 <strong>
                                     <Link to={`/formulas/${fh.formula.name}`}>
                                         {fh.formula.name}
                                     </Link>
                                 </strong>
-                            </p>
+                            </div>
 
-                            <p>
+                            <div>
                                 <ul style={{ listStyle: 'none' }}>
                                     <li>
                                         <strong>Pinyin</strong> {fh.formula.pinyin}
@@ -30,7 +30,7 @@ const HerbFormulaDetail = ({ herb }) => {
                                         <strong>English</strong> {fh.formula.english}
                                     </li>
                                 </ul>
-                            </p>
+                            </div>
                         </td>
                     </tr>
                 ))}

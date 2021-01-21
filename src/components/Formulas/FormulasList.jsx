@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { useQuery } from '@apollo/client'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,8 @@ import FormulaPropTypes from './FormulaPropTypes'
 import RemoteError from '../shared/RemoteError'
 import RemoteLoading from '../shared/RemoteLoading'
 import Pagination from '../shared/Pagination'
+
+import PaginationContext from '../../contexts/PaginationContext'
 
 const FormulaRow = ({ formula }) => {
     const url = `/formulas/${formula.name}`
@@ -32,10 +34,9 @@ const FormulaRow = ({ formula }) => {
 FormulaRow.propTypes = FormulaPropTypes
 
 const FormulasList = ({ title }) => {
-    const [limit] = useState(20)
-    const [offset, setOffset] = useState(0)
+    const { formulasLimit, formulasOffset, setFormulasOffset } = useContext(PaginationContext)
     const { loading, error, data } = useQuery(FormulaQueries.LIST_FORMULAS, {
-        variables: { limit, offset },
+        variables: { limit: formulasLimit, offset: formulasOffset },
     })
     if (loading) return <RemoteLoading />
     if (error) return <RemoteError error={error} />
@@ -56,10 +57,10 @@ const FormulasList = ({ title }) => {
                 </div>
             </div>
             <Pagination
-                limit={limit}
-                offset={offset}
+                limit={formulasLimit}
+                offset={formulasOffset}
                 total={data.formulas_aggregate.aggregate.count}
-                onChange={setOffset}
+                onChange={setFormulasOffset}
             />
         </div>
     )

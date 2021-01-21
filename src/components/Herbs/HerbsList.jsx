@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { useQuery } from '@apollo/client'
 import { Link } from 'react-router-dom'
@@ -9,6 +9,7 @@ import RemoteError from '../shared/RemoteError'
 import RemoteLoading from '../shared/RemoteLoading'
 
 import Pagination from '../shared/Pagination'
+import PaginationContext from '../../contexts/PaginationContext'
 
 const HerbPropertySet = ({ propertyType, propertySet }) => {
     return (
@@ -58,10 +59,9 @@ const HerbRow = ({ herb }) => {
 HerbRow.propTypes = HerbPropTypes
 
 const HerbsList = ({ title }) => {
-    const [limit] = useState(20)
-    const [offset, setOffset] = useState(0)
+    const { herbsLimit, herbsOffset, setHerbsOffset } = useContext(PaginationContext)
     const { loading, error, data } = useQuery(HerbQueries.LIST_HERBS, {
-        variables: { limit, offset },
+        variables: { limit: herbsLimit, offset: herbsOffset },
     })
     if (loading) return <RemoteLoading />
     if (error) return <RemoteError error={error} />
@@ -82,10 +82,10 @@ const HerbsList = ({ title }) => {
                 </div>
             </div>
             <Pagination
-                limit={limit}
-                offset={offset}
+                limit={herbsLimit}
+                offset={herbsOffset}
                 total={data.herbs_aggregate.aggregate.count}
-                onChange={setOffset}
+                onChange={setHerbsOffset}
             />
         </div>
     )

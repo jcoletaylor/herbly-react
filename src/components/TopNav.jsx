@@ -27,9 +27,6 @@ const TopNav = () => {
                 </div>
                 <div id="navMenu" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
                     <div className="navbar-start">
-                        <Link to="/" className="navbar-item">
-                            Home
-                        </Link>
                         <Link to="/herbs" className="navbar-item">
                             Herbs
                         </Link>

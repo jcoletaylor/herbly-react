@@ -9,7 +9,18 @@ export const PaginationComponent = () => {
 }
 
 export const PaginationManager = () => {
-    const paginationSets = ['herbs', 'formulas']
+    const paginationSets = [
+        'herbs',
+        'herb_actions',
+        'herb_categories',
+        'herb_properties',
+        'herb_warnings',
+        'formulas',
+        'formula_actions',
+        'conditions',
+        'symptoms',
+        'syndromes',
+    ]
     const managed = {}
     paginationSets.map((set) => {
         managed[set] = PaginationComponent()

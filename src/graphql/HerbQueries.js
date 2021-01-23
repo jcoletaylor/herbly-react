@@ -84,6 +84,12 @@ export const COMPLETE_HERB_DETAIL_FRAGMENT = gql`
                     herb {
                         id
                         name
+                        pinyin
+                        hanzi
+                        common_english
+                        herb_category {
+                            name
+                        }
                     }
                 }
                 herb_combination_use_cases {

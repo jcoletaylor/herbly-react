@@ -18,13 +18,13 @@ const LeftNav = () => {
                     <Link to="/herbs">Herbs by Alpha</Link>
                 </li>
                 <li>
-                    <Link to="/">Herb Actions</Link>
+                    <Link to="/herb_actions">Herb Actions</Link>
                 </li>
                 <li>
-                    <Link to="/">Herb Categories</Link>
+                    <Link to="/herb_categories">Herb Categories</Link>
                 </li>
                 <li>
-                    <Link to="/">Herb Properties</Link>
+                    <Link to="/herb_properties">Herb Properties</Link>
                     <ul>
                         {data.herb_property_types.map((t) => {
                             return (
@@ -41,7 +41,7 @@ const LeftNav = () => {
                     </ul>
                 </li>
                 <li>
-                    <Link to="/">Herb Warnings</Link>
+                    <Link to="/herb_warnings">Herb Warnings</Link>
                     <ul>
                         {data.herb_warning_types.map((t) => {
                             return (
@@ -64,16 +64,16 @@ const LeftNav = () => {
                     <Link to="/formulas">Formulas by Alpha</Link>
                 </li>
                 <li>
-                    <Link to="/">Actions</Link>
+                    <Link to="/formula_actions">Formula Actions</Link>
                 </li>
                 <li>
-                    <Link to="/">Conditions</Link>
+                    <Link to="/conditions">Conditions</Link>
                 </li>
                 <li>
-                    <Link to="/">Symptoms</Link>
+                    <Link to="/symptoms">Symptoms</Link>
                 </li>
                 <li>
-                    <Link to="/">Syndromes</Link>
+                    <Link to="/syndromes">Syndromes</Link>
                 </li>
             </ul>
         </aside>

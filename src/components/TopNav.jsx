@@ -73,15 +73,18 @@ const TopNav = () => {
                         </div>
                     </div>
                     <div className="navbar-end">
-                        <div className="navbar-item">
-                            <Link to="/stats" className="navbar-item">
-                                Stats
-                            </Link>
-                        </div>
-                        <div className="navbar-item">
-                            <Link to="/about" className="navbar-item">
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <Link to="/about" className="navbar-link">
                                 About
                             </Link>
+                            <div className="navbar-dropdown">
+                                <Link to="/about" className="navbar-item">
+                                    About
+                                </Link>
+                                <Link to="/stats" className="navbar-item">
+                                    Stats
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

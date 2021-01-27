@@ -31,12 +31,42 @@ export const OVERVIEW_COUNTS = gql`
                 count
             }
         }
+        herb_properties_aggregate {
+            aggregate {
+                count
+            }
+        }
+        herb_action_types_aggregate {
+            aggregate {
+                count
+            }
+        }
+        herb_warnings_aggregate {
+            aggregate {
+                count
+            }
+        }
         formulas_aggregate {
             aggregate {
                 count
             }
         }
-        formula_actions_aggregate {
+        formula_named_actions_aggregate {
+            aggregate {
+                count
+            }
+        }
+        syndromes_aggregate {
+            aggregate {
+                count
+            }
+        }
+        symptoms_aggregate {
+            aggregate {
+                count
+            }
+        }
+        conditions_aggregate {
             aggregate {
                 count
             }

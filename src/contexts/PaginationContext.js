@@ -20,6 +20,7 @@ export const PaginationManager = () => {
         'conditions',
         'symptoms',
         'syndromes',
+        'search',
     ]
     const managed = {}
     paginationSets.map((set) => {

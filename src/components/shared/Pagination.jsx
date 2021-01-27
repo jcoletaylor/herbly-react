@@ -108,7 +108,7 @@ const Pagination = ({ limit, offset, total, onChange }) => {
         <nav className="pagination is-centered is-small" role="navigation" aria-label="pagination">
             {previousButton}
             {nextButton}
-            <ul className="pagination-list">
+            <ul style={{ listStyle: 'none' }} className="pagination-list">
                 {firstLi}
                 {previousLi}
                 <li>

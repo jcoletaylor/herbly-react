@@ -6,6 +6,7 @@ import * as C from './Constants'
 import './App.css'
 
 import PaginationContext, { PaginationManager } from './contexts/PaginationContext'
+import SearchContext, { SearchManager } from './contexts/SearchContext'
 
 const client = new ApolloClient({
     uri: C.GRAPHQL_URL,
@@ -16,7 +17,9 @@ const App = () => {
     return (
         <ApolloProvider client={client}>
             <PaginationContext.Provider value={PaginationManager()}>
-                <AppRouter />
+                <SearchContext.Provider value={SearchManager()}>
+                    <AppRouter />
+                </SearchContext.Provider>
             </PaginationContext.Provider>
         </ApolloProvider>
     )

@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import FullTextSearchForm from './FullTextSearchForm'
 import FullTextSearchResultTable from './FullTextSearchResultTable'
 import SearchContext from '../../contexts/SearchContext'
+import PaginationContext from '../../contexts/PaginationContext'
 
 const conditionallyRenderResults = ({ search }) => {
     if (search && search.toString().trim().length > 3) {
@@ -10,11 +11,18 @@ const conditionallyRenderResults = ({ search }) => {
 }
 
 const FullTextSearch = () => {
+    const {
+        search: { setOffset },
+    } = useContext(PaginationContext)
     const { search, setSearch } = useContext(SearchContext)
+    const handleReset = (args) => {
+        setSearch('')
+        setOffset(0)
+    }
     return (
         <>
             <FullTextSearchForm
-                handleReset={(args) => setSearch('')}
+                handleReset={handleReset}
                 handleSubmit={(args) => setSearch(args.search)}
                 search={search}
             />

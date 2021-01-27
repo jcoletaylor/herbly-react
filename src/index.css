@@ -3,7 +3,7 @@ html, body {
   font-size: 16px;
   line-height: 1.5;
   height: 100%;
-  background: #ECF0F3;
+  background: #2c363f;
 }
 nav.navbar {
   border-top: 4px solid #276cda;
@@ -57,8 +57,8 @@ nav.navbar {
 }
 .hero.welcome.is-success {
   background: #36dc7b;
-  background: -webkit-linear-gradient(to right, #1b803d, #49f527);
-  background: linear-gradient(to right, #1b803d, #49f527);
+  background: -webkit-linear-gradient(to right, #1b803d, #3aa325);
+  background: linear-gradient(to right, #1b803d, #3aa325);
 }
 .hero.welcome .title, .hero.welcome .subtitle {
   color: hsl(192, 17%, 99%);

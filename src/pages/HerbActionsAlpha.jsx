@@ -12,7 +12,9 @@ const HerbActionsAlpha = () => {
     return (
         <div className="container">
             <BreadCrumbs crumbs={crumbs} />
-            <HerbActionsList title="Herb Actions by Alpha" />
+            <div className="content">
+                <HerbActionsList title="Herb Actions by Alpha" />
+            </div>
         </div>
     )
 }

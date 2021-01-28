@@ -5,7 +5,10 @@ import FullTextSearch from '../components/FullTextSearch'
 const Home = () => {
     return (
         <div className="container">
-            <Hero />
+            <Hero
+                title="Herbly.app"
+                subtitle="Designed to help search and explore TCM herbs and formulas"
+            />
             <div className="content">
                 <FullTextSearch />
             </div>

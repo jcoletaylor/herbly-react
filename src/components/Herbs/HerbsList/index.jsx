@@ -24,7 +24,7 @@ const HerbsList = ({ title }) => {
             <header className="card-header">
                 <p className="card-header-title">{title}</p>
             </header>
-            <div className="card-table-large">
+            <div className="card-table-large card-content">
                 <div className="content">
                     <table className="table is-fullwidth is-striped">
                         <tbody>
@@ -35,12 +35,16 @@ const HerbsList = ({ title }) => {
                     </table>
                 </div>
             </div>
-            <Pagination
-                limit={limit}
-                offset={offset}
-                total={data.herbs_aggregate.aggregate.count}
-                onChange={setOffset}
-            />
+            <footer className="card-footer">
+                <div className="card-footer-item">
+                    <Pagination
+                        limit={limit}
+                        offset={offset}
+                        total={data.herbs_aggregate.aggregate.count}
+                        onChange={setOffset}
+                    />
+                </div>
+            </footer>
         </div>
     )
 }

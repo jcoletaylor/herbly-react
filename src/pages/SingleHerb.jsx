@@ -15,7 +15,9 @@ const SingleHerb = () => {
     return (
         <div className="container">
             <BreadCrumbs crumbs={crumbs} />
-            <HerbsDetail name={name} />
+            <div className="content">
+                <HerbsDetail name={name} />
+            </div>
         </div>
     )
 }

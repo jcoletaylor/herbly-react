@@ -8,7 +8,8 @@ const TopNav = () => {
             <div className="container">
                 <div className="navbar-brand">
                     <Link to="/" className="navbar-item brand-text">
-                        Herbly.app
+                        <img src="/herbly-logo.png" width="32" height="32" />
+                        <strong>Herbly.app</strong>
                     </Link>
                     <a
                         onClick={() => {
@@ -32,7 +33,7 @@ const TopNav = () => {
                                 Herbs
                             </Link>
                             <div className="navbar-dropdown">
-                                <Link className="navbar-item" to="/herb">
+                                <Link className="navbar-item" to="/herbs">
                                     Herbs by Alpha
                                 </Link>
                                 <Link className="navbar-item" to="/herb_actions">

@@ -15,7 +15,9 @@ const SingleFormula = () => {
     return (
         <div className="container">
             <BreadCrumbs crumbs={crumbs} />
-            <FormulasDetail name={name} />
+            <div className="content">
+                <FormulasDetail name={name} />
+            </div>
         </div>
     )
 }

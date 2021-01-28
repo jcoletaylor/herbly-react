@@ -99,7 +99,7 @@ const Pagination = ({ limit, offset, total, onChange }) => {
     if (nextPage) {
         nextButton = (
             <a className="pagination-next" onClick={handleOnChange(nextPage)}>
-                Next page
+                Next
             </a>
         )
     }

@@ -19,11 +19,15 @@ const FullTextSearch = () => {
         setSearch('')
         setOffset(0)
     }
+    const handleSubmit = (args) => {
+        setSearch(args.search)
+        setOffset(0)
+    }
     return (
         <>
             <FullTextSearchForm
                 handleReset={handleReset}
-                handleSubmit={(args) => setSearch(args.search)}
+                handleSubmit={handleSubmit}
                 search={search}
             />
             {conditionallyRenderResults({ search })}

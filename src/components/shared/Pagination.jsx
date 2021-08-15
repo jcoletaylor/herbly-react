@@ -90,25 +90,28 @@ const Pagination = ({ limit, offset, total, onChange }) => {
     let previousButton
     if (previousPage) {
         previousButton = (
-            <a className="pagination-previous" onClick={handleOnChange(previousPage)}>
-                Previous
-            </a>
+            <li>
+                <a className="pagination-previous" onClick={handleOnChange(previousPage)}>
+                    Previous
+                </a>
+            </li>
         )
     }
     let nextButton
     if (nextPage) {
         nextButton = (
-            <a className="pagination-next" onClick={handleOnChange(nextPage)}>
-                Next
-            </a>
+            <li>
+                <a className="pagination-next" onClick={handleOnChange(nextPage)}>
+                    Next
+                </a>
+            </li>
         )
     }
 
     return (
         <nav className="pagination is-centered is-small" role="navigation" aria-label="pagination">
-            {previousButton}
-            {nextButton}
             <ul style={{ listStyle: 'none' }} className="pagination-list">
+                {previousButton}
                 {firstLi}
                 {previousLi}
                 <li>
@@ -122,6 +125,7 @@ const Pagination = ({ limit, offset, total, onChange }) => {
                 </li>
                 {nextLi}
                 {lastLi}
+                {nextButton}
             </ul>
         </nav>
     )

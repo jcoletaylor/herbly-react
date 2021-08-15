@@ -17,7 +17,7 @@ const HerbDetailListCard = ({ title, component, herb }) => {
 
 HerbDetailListCard.propTypes = {
     title: PropTypes.string.isRequired,
-    component: PropTypes.oneOfType(React.Component),
+    component: PropTypes.oneOfType([React.Component]),
     herb: PropTypes.shape(HerbPropTypes),
 }
 

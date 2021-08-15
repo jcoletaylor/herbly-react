@@ -17,7 +17,7 @@ const FormulaDetailListCard = ({ title, component, formula }) => {
 
 FormulaDetailListCard.propTypes = {
     title: PropTypes.string.isRequired,
-    component: PropTypes.oneOfType(React.Component),
+    component: PropTypes.oneOfType([React.Component]),
     formula: PropTypes.shape(FormulaPropTypes),
 }
 
